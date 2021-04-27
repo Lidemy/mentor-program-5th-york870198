@@ -12,7 +12,7 @@ function compare(lines) {
           if ((Number(a[j]) - Number(b[j])) * Number(win) > 0) {
             r = 'A'
             break
-          } else if ((Number(a[j]) - Number(b[j])) * Number(win) < 0) {
+          } else {
             r = 'B'
             break
           }
