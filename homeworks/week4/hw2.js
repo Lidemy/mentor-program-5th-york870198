@@ -18,6 +18,8 @@ switch (args[2]) {
   case 'update':
     updating(args[3], args[4])
     break
+  case undefined:
+    console.log('請輸入使用方法')
 }
 
 function listing() {

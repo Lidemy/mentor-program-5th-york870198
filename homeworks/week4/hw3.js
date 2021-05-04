@@ -14,6 +14,10 @@ const args = process.argv;
       console.log(`國碼：${e.callingCodes[0]}`)
     })
   } catch (error) {
-    console.log('找不到國家資訊')
+    if (error.response) {
+      console.log('找不到國家資訊。')
+    } else {
+      console.log('出了點問題。')
+    }
   }
 })()
