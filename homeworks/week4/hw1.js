@@ -1,6 +1,6 @@
-const got = require('got');
+const got = require('got')
 
-(async() => {
+async function linking() {
   try {
     const response = await got('https://lidemy-book-store.herokuapp.com/books?_limit=10')
     const resBody = JSON.parse(response.body)
@@ -10,4 +10,6 @@ const got = require('got');
   } catch (error) {
     console.log(error.response.body)
   }
-})()
+}
+
+linking()
