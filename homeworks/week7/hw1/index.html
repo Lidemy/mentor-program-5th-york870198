@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>活動報名表單</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+</head>
+
+<style type="text/css">
+  body{
+    align-items: center;
+    font-size: 14px;
+    background-color: #aaaaaa;
+  }
+  .wrapper{
+    border-top: solid 8px #fad312;
+    max-width: 700px;
+    margin: 0px auto;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 40px;
+    background-color: white;
+    box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+  }
+  .description {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  h2 {
+    font-weight: normal;
+    margin: 0px;
+  }
+  h2.requiring::after {
+    content: ' *';
+    color:#e74149;
+  }
+  .question {
+    margin-top: 50px;
+  }
+  .required {
+    margin-top: 20px;
+    color: #e74149;
+  }
+  input {
+    border: solid 1px #d0d0d0;
+    margin-top: 20px;
+  }
+  ::placeholder {
+    color: #d0d0d0;
+  }
+  .submit {
+    display: inline-block;
+    background-color: #fad312;
+    padding: 15px 32px;
+    margin-top: 60px;
+    border-radius: 3px;
+  }
+  footer {
+    margin-top: 30px;
+  }
+
+  .alerting::before {
+    content: '這裡忘了填喔';
+    color:#e74149;
+    display: inline-block;
+    padding-top: 10px;
+    padding-left: 5px;
+  }
+  @media(max-width: 768px) {
+    body{
+      background-color: white;
+      border-top: solid 8px #fad312;
+      box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+    }
+    .wrapper{
+      border-top: none;
+      max-width: 645px;
+      box-shadow:  none;
+    }
+  }
+</style>
+
+<body>
+  <form class="wrapper">
+    <h1>新拖延運動報名表單</h1>
+    <section>
+      <div class="description">
+        活動日期：2020/12/10 ~ 2020/12/11
+      </div>
+      <div class="description">
+        活動地點：台北市大安區新生南路二段1號
+      </div>
+    </section>
+    
+    <div class="required">
+      * 必填
+    </div>
+
+    <div class="question">
+      <label for="nickname"><h2 class="requiring">暱稱</h2></label>
+      <input type="text" placeholder="您的回答" id="nickname" class="text_input" />
+      <div></div>
+    </div>
+
+    <div class="question">
+      <label for="email"><h2 class="requiring">電子郵件</h2></label>
+      <input type="text" placeholder="您的電子郵件" id="email" class="text_input" />
+      <div></div>
+    </div>
+
+    <div class="question">
+      <label for="tel"><h2 class="requiring">手機號碼</h2></label>
+      <input type="text" placeholder="您的手機號碼" id="tel" class="text_input" />
+      <div></div>
+    </div>
+
+    <div class="question">
+      <h2 class="requiring">報名類型</h2>
+      <label for="brainpower"><input type="radio" id="brainpower" name="how" data-description="躺在床上用想像力實作" /> 躺在床上用想像力實作</label><br>
+      <label for="smartphone"><input type="radio" id="smartphone" name="how" data-description="趴在地上滑手機找現成的" /> 趴在地上滑手機找現成的<div></div></label>
+      
+    </div>
+
+    <div class="question">
+      <label for="knowfrom"><h2 class="requiring">怎麼知道這個活動的？</h2></label>
+      <input type="text" placeholder="您的回答" id="knowfrom" class="text_input" />
+      <div></div>
+    </div>
+
+    <div class="question">
+      <label for="other"><h2>其他</h2><div>對活動的一些建議</div></label>
+      <input type="text" placeholder="您的回答" id="other" class="text_input" />
+    </div>
+    <button class="submit">提交</button>
+
+    <footer>請勿透過表單送出您的密碼。</footer>
+  </form>
+</body>
+
+<script type="text/javascript">
+  const form = document.querySelector('form')
+  const nickname = document.querySelector('#nickname')
+  const email = document.querySelector('#email')
+  const tel = document.querySelector('#tel')
+  const radio = document.querySelectorAll('input[type=radio]')
+  const knowfrom = document.querySelector('#knowfrom')
+
+  form.addEventListener('submit', (e)=>{
+    let ok = true
+    if(nickname.value==="") {
+      ok = false
+      document.querySelector('#nickname+div').classList.add('alerting')
+    } else {
+      document.querySelector('#nickname+div').classList.remove('alerting')
+    }
+    if(email.value===""){
+      ok = false
+      document.querySelector('#email+div').classList.add('alerting')
+    } else {
+      document.querySelector('#email+div').classList.remove('alerting')
+    }
+    if(tel.value===""){
+      ok = false
+      document.querySelector('#tel+div').classList.add('alerting')
+    } else {
+      document.querySelector('#tel+div').classList.remove('alerting')
+    }
+    if(radio[0].checked === radio[1].checked){
+      ok = false
+      document.querySelector('#smartphone+div').classList.add('alerting')
+    } else {
+      document.querySelector('#smartphone+div').classList.remove('alerting')
+    }
+    if(knowfrom.value===""){
+      ok = false
+      document.querySelector('#knowfrom+div').classList.add('alerting')
+    } else {
+      document.querySelector('#knowfrom+div').classList.remove('alerting')
+    }
+    if(ok){
+      alert(`暱稱：${nickname.value}\n電子郵件：${email.value}\n電話號碼：${tel.value}\n報名類型：${radio[0].checked? radio[0].dataset.description : radio[1].dataset.description}\n如何得知活動：${knowfrom.value}`)
+    } else {
+      e.preventDefault()      
+    }
+  })
+
+  
+</script>
+
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ToDo List</title>
+    <style type="text/css">
+      .wrapper {
+        margin: 0px auto;
+        max-width: 675px;
+        min-height: 1024px;
+        text-align: center;
+        background-color: lightcyan;
+      }
+      .banner {
+        padding-top: 20px;
+        color: teal;
+        font-family: monospace
+      }
+      input {
+        border: 2px solid aquamarine;
+        outline: none;
+        color: plum;
+      }
+      input:focus {
+        outline: none;
+        color: violet;
+        border-bottom: solid 2px mediumslateblue;
+        border-right: solid 2px mediumslateblue;
+        border-left: solid 2px mediumpurple;
+        border-top: solid 2px mediumpurple;
+      }
+      ::placeholder{
+        color: slateblue;
+        opacity: 0.5;
+      }
+      .list_zone {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        overflow-y: scroll;
+        height: 900px;
+      }
+      .list_zone::-webkit-scrollbar {
+        display: none;
+      }
+
+      .todos {
+        background-color: paleturquoise;
+        width: 50%;
+        padding: 10px 10px;
+        margin: 5px 0px;
+        font-size: 24px;
+        color: cadetblue;
+        font-family: monospace;
+        display:flex;
+        justify-content: space-between;
+      }
+      
+      .delete_btn {
+        display: inline-block;
+      }
+      .done {
+        color: rgba(95,158,160,0.5);
+        text-decoration: line-through;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="banner">
+        <h1>ToDo List</h1>  
+      </div>
+      <div class="input_zone">
+        <input type="text" name="todo" placeholder="What's next?" />
+      </div>
+      <div class="list_zone">
+        
+      </div>
+
+    </div>
+
+  </body>
+  <script type="text/javascript">
+    const input = document.querySelector('input');
+    const list = document.querySelector('.list_zone');
+    input.addEventListener('keypress',(e)=>{
+      if(e.code == 'Enter' && input.value != ''){
+        let newTodo = document.createElement('div',);
+        newTodo.classList.add('todos')
+        newTodo.innerHTML = `<span><input type="checkbox">${input.value}</span><span class="delete_btn">X</span>`
+        list.appendChild(newTodo);
+        input.value = '';
+      }
+    })
+
+    list.addEventListener('click', (e)=>{
+      if(e.target.classList.contains('delete_btn')){
+        e.target.closest('div').remove();
+      } else if(e.target.hasAttribute('type')){
+        if(e.target.checked){
+          e.target.closest('span').classList.add('done');
+        } else {
+          e.target.closest('span').classList.remove('done');
+        }
+      }
+    })
+  </script>
+</html>
