@@ -1,289 +1,268 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>餐廳首頁</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-</head>
+  <html>
+  <head>
+    <title>餐廳首頁</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  </head>
 
-<style type="text/css">
-
-  .navbar {
-    box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
-    padding: 0 20px;
-  }
-  .navbar .wrapper{
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
-    height: 84px;
-    background: white;
-  }
-
-  .navbar_siteName{
-    font-size: 36px;
-    color: #489846;
-  }
-
-  .navbar_list{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    font-size: 18px;
-    align-items: center;
-  }
-
-  .navbar_list li{
-    margin-left: 16px;
-    border-radius: 8px;
-    transition: background 0.1s;
-  }
-
-  .navbar_list li.active{
-    background-color: #ff7286;
-    color: white;
-  }
-
-  .navbar_list li.active a,
-  .navbar_list li:hover a {
-    color: white;
-  }
-
-  .navbar_list li:hover{
-    background-color: #ff7286;
-    border-radius: 8px;
-  }
-
-  .navbar_list li a{
-    display: block;
-    text-decoration: none;
-    color: black;
-    padding: 12px 24px;
-  }
-
-  .wrapper {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0px 24px;
-    text-align: center;
-  }
-
-  .question {
-    border-bottom: solid 1px #a6e2c0;
-    max-width: 640px;
-    font-size: 18px;
-    margin: 0px auto;
-    padding: 30px 15px;
-    text-align: left;
-    display: flex; 
-    align-items: baseline;
-  }
-
-  .question_title {
-    font-size: 24px;
-    color: #70b282;
-    letter-spacing: 0.22px;
-    display: inline-block;
-  }
-
-  .question_text {
-    display: inline-block;
-    width: 90%;
-    padding-left: 10px;
-  }
-
-  .answer {
-    font-size: 16px;
-    max-height: 0px;
-    transition: all 0.5s;
-    overflow: hidden;
-    color: rgba(0,0,0,0);
-  }
-
-  .showed .answer {
-    padding-top: 25px;
-    max-height: 1000px;
-    color: black;
-  }
-
-  
-  h2 {
-    margin-bottom: 40px; 
-    text-align: center;
-    border-left: solid 15px #a3dea2;
-    display: inline-block;
-    font-size: 36px;
-    padding-left: 15px;
-  }
-
-  
-  footer {
-    margin-top: 40px;
-  }
-
-  .footer_top {
-    background-color: #e8efee;
-    width: 100%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    justify-content: space-between;
-    display: flex;
-  }
-
-  .footer_topLeft {
-    margin-left: 100px;
-  }
-
-  .footer_topLeft div {
-    margin: 8px 0px; 
-  }
-
-  .footer_topRight {
-    margin-Right: 100px;
-    text-align: center;
-  }
-
-  .footer_siteName {
-    font-size: 36px;
-    color: #489846;
-  }
-  .footer_sns {
-    font-size: 14px;
-    color: #484848;
-  }
-
-  .footer_bottom {
-    text-align: center;
-    font-size: 16px;
-    width: 100%;
-    background-color: #35564b;
-    color: white;
-    padding: 12px 0px;
-    font-size: 16px;
-    color: white;
-  }
-
-  @media(max-width: 768px){
-    .navbar .wrapper{
-      height: 100px;
-      flex-direction: column;
-      justify-content: center;
-      padding: 0px;
-    }
-
-    .navbar_list {
-      display: flex;
-      width: 100%;
-    }
-    .navbar_list li {
-      flex: 1;
-      margin-left: 0;
-      border-radius: 0;
-    }
-    .navbar_list li a {
-      text-align: center;
-    }
+  <style type="text/css">
     .navbar {
-      padding: 0 0;
+      box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+      padding: 0 20px;
+    }
+    .navbar .wrapper{
+      justify-content: space-between;
+      display: flex;
+      align-items: center;
+      height: 84px;
+      background: white;
+    }
+    .navbar_siteName{
+      font-size: 36px;
+      color: #489846;
+    }
+    .navbar_list{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      font-size: 18px;
+      align-items: center;
+    }
+    .navbar_list li{
+      margin-left: 16px;
+      border-radius: 8px;
+      transition: background 0.1s;
+    }
+    .navbar_list li.active{
+      background-color: #ff7286;
+      color: white;
+    }
+    .navbar_list li.active a,
+    .navbar_list li:hover a {
+      color: white;
     }
     .navbar_list li:hover{
       background-color: #ff7286;
-      border-radius: 0px;
+      border-radius: 8px;
     }
-    .footer_top{
-      flex-direction: column-reverse;
-      justify-content: center;
+    .navbar_list li a{
+      display: block;
+      text-decoration: none;
+      color: black;
+      padding: 12px 24px;
     }
-    .footer_topLeft{
+    .wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0px 24px;
       text-align: center;
-      margin-left: 0;
     }
-    .footer_topRight{
+    .questions {
+      padding-bottom: 100px;
+    }
+    .question {
+      border-bottom: solid 1px #a6e2c0;
+      max-width: 640px;
+      font-size: 18px;
+      margin: 0px auto;
+      padding: 30px 15px;
+      text-align: left;
+      display: flex; 
+      align-items: baseline;
+    }
+    .question_title {
+      font-size: 24px;
+      color: #70b282;
+      letter-spacing: 0.22px;
+      display: inline-block;
+    }
+    .question_text {
+      display: inline-block;
+      width: 90%;
+      padding-left: 10px;
+    }
+    .answer {
+      font-size: 16px;
+      max-height: 0px;
+      transition: all 0.5s;
+      overflow: hidden;
+      color: rgba(0,0,0,0);
+    }
+    .showed .answer {
+      padding-top: 25px;
+      max-height: 1000px;
+      color: black;
+    }
+    h2 {
+      margin-bottom: 40px; 
       text-align: center;
-      margin-right: 0;
+      border-left: solid 15px #a3dea2;
+      display: inline-block;
+      font-size: 36px;
+      padding-left: 15px;
     }
-  }
-</style>
-
-<body>
-  <nav class="navbar">
-    <div class="wrapper">
-      <div class="navbar_siteName">Just A Bite!</div>
-      <ul class="navbar_list">
-        <li class="active"><a href="#">抽個大獎</a></li>
-        <li><a href="#">我要點餐</a></li>
-        <li><a href="#">查詢訂單</a></li>
-        <li><a href="#">常見問題</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="wrapper questions">
-    <h2>FAQ - 常見問題</h2>
-    <div class="question">
-      <div class="question_title">Q1:</div>
-      <div class="question_text">
-        如何辦理退貨？
-        <div class="answer">恕不接受退貨，我們是餐廳，就算你有辦法把吃進去的餐點吐出來我們也沒法收。</div>
-      </div>
-    </div>
-    <div class="question">
-      <div class="question_title">Q2:</div>
-      <div class="question_text">
-        目前提供哪些付款方式？
-        <div class="answer">現金與信用卡。本來也收比特幣，但是老闆最近賠太多所以暫停收受以免觸發心靈創傷。</div>
-      </div>
-    </div>
-    <div class="question">
-      <div class="question_title">Q3:</div>
-      <div class="question_text">
-        線上刷卡如何操作？
-        <div class="answer">要先等我架好網站後端。</div>
-      </div>
-    </div>
-    <div class="question">
-      <div class="question_title">Q4:</div>
-      <div class="question_text">
-        每次去店裡好像都沒看到老闆，老闆都在幹嘛？
-        <div class="answer">老闆為人靦腆不擅社交，不適合做外場所以關在廚房裡面當苦力。</div>
-      </div>
-    </div>
-    <div class="question">
-      <div class="question_title">Q5:</div>
-      <div class="question_text">
-        你們有在徵員工嗎？
-        <div class="answer">暫時沒有，最近疫情升溫我們都差點要放無薪假了。</div>
-      </div>
-    </div>
-
-  </div> 
-
-  <footer>
-    <div class="footer_top">
-      <div class="footer_topLeft">
-        <div>餐館地址: 天上地下天堂路三分之一里六段520號</div>
-        <div>訂位專線：02-1314-5566</div>
-        <div>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</div>
-        <div>email：service@justabite.com.tw</div>
-      </div>
-      <div class="footer_topRight">
-        <div class="footer_siteName">Just A Bite!</div>
-        <div class="footer_sns">Facebook / Instagram / Youtube</div>
-      </div>
-    </div>
-    <div class="footer_bottom">
-      Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有
-    </div>
-  </footer>
-</body>
-
-<script type="text/javascript">
-  const questions = document.querySelector('.questions');
-  questions.addEventListener('click',(e)=>{
-    console.log(e.target)
-    if (e.target.classList.contains('question_text')){
-      e.target.classList.toggle('showed');      
+    footer {
+      margin-top: 40px;
     }
-  })
-</script>
+    .footer_top {
+      background-color: #e8efee;
+      width: 100%;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      justify-content: space-between;
+      display: flex;
+    }
+    .footer_topLeft {
+      margin-left: 100px;
+    }
+
+    .footer_topLeft div {
+      margin: 8px 0px; 
+    }
+
+    .footer_topRight {
+      margin-Right: 100px;
+      text-align: center;
+    }
+    .footer_siteName {
+      font-size: 36px;
+      color: #489846;
+    }
+    .footer_sns {
+      font-size: 14px;
+      color: #484848;
+    }
+    .footer_bottom {
+      text-align: center;
+      font-size: 16px;
+      width: 100%;
+      background-color: #35564b;
+      color: white;
+      padding: 12px 0px;
+      font-size: 16px;
+      color: white;
+    }
+    @media(max-width: 768px){
+      .navbar .wrapper{
+        height: 100px;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px;
+      }
+
+      .navbar_list {
+        display: flex;
+        width: 100%;
+      }
+      .navbar_list li {
+        flex: 1;
+        margin-left: 0;
+        border-radius: 0;
+      }
+      .navbar_list li a {
+        text-align: center;
+      }
+      .navbar {
+        padding: 0 0;
+      }
+      .navbar_list li:hover{
+        background-color: #ff7286;
+        border-radius: 0px;
+      }
+      .footer_top{
+        flex-direction: column-reverse;
+        justify-content: center;
+      }
+      .footer_topLeft{
+        text-align: center;
+        margin-left: 0;
+      }
+      .footer_topRight{
+        text-align: center;
+        margin-right: 0;
+      }
+    }
+  </style>
+
+  <body>
+    <nav class="navbar">
+      <div class="wrapper">
+        <div class="navbar_siteName">Just A Bite!</div>
+        <ul class="navbar_list">
+          <li class="active"><a href="#">抽個大獎</a></li>
+          <li><a href="#">我要點餐</a></li>
+          <li><a href="#">查詢訂單</a></li>
+          <li><a href="#">常見問題</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="wrapper questions">
+      <h2>FAQ - 常見問題</h2>
+      <div class="question">
+        <div class="question_title">Q1:</div>
+        <div class="question_text">
+          如何辦理退貨？
+          <div class="answer">恕不接受退貨，我們是餐廳，就算你有辦法把吃進去的餐點吐出來我們也沒法收。</div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="question_title">Q2:</div>
+        <div class="question_text">
+          目前提供哪些付款方式？
+          <div class="answer">現金與信用卡。本來也收比特幣，但是老闆最近賠太多所以暫停收受以免觸發心靈創傷。</div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="question_title">Q3:</div>
+        <div class="question_text">
+          線上刷卡如何操作？
+          <div class="answer">要先等我架好網站後端。</div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="question_title">Q4:</div>
+        <div class="question_text">
+          每次去店裡好像都沒看到老闆，老闆都在幹嘛？
+          <div class="answer">老闆為人靦腆不擅社交，不適合做外場所以關在廚房裡面當苦力。</div>
+        </div>
+      </div>
+      <div class="question">
+        <div class="question_title">Q5:</div>
+        <div class="question_text">
+          你們有在徵員工嗎？
+          <div class="answer">暫時沒有，最近疫情升溫我們都差點要放無薪假了。</div>
+        </div>
+      </div>
+    </div> 
+
+    <footer>
+      <div class="footer_top">
+        <div class="footer_topLeft">
+          <div>餐館地址: 天上地下天堂路三分之一里六段520號</div>
+          <div>訂位專線：02-1314-5566</div>
+          <div>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</div>
+          <div>email：service@justabite.com.tw</div>
+        </div>
+        <div class="footer_topRight">
+          <div class="footer_siteName">Just A Bite!</div>
+          <div class="footer_sns">Facebook / Instagram / Youtube</div>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有
+      </div>
+    </footer>
+    <script type="text/javascript">
+      const questions = document.querySelector('.questions');
+      questions.addEventListener('click',(e)=>{
+        console.log(e.target)
+        if (e.target.classList.contains('question_text')){
+          e.target.classList.toggle('showed');      
+        }
+      })
+    </script>
+  </body>
 </html>
