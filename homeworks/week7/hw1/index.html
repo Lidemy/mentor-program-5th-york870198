@@ -99,32 +99,33 @@
 
     <div class="question">
       <label for="nickname"><h2 class="requiring">暱稱</h2></label>
-      <input type="text" placeholder="您的回答" id="nickname" class="text_input" />
+      <input type="text" placeholder="您的回答" id="nickname" class="text_input requiring" />
       <div></div>
     </div>
 
     <div class="question">
       <label for="email"><h2 class="requiring">電子郵件</h2></label>
-      <input type="text" placeholder="您的電子郵件" id="email" class="text_input" />
+      <input type="text" placeholder="您的電子郵件" id="email" class="text_input requiring" />
       <div></div>
     </div>
 
     <div class="question">
       <label for="tel"><h2 class="requiring">手機號碼</h2></label>
-      <input type="text" placeholder="您的手機號碼" id="tel" class="text_input" />
+      <input type="text" placeholder="您的手機號碼" id="tel" class="text_input requiring" />
       <div></div>
     </div>
 
     <div class="question">
       <h2 class="requiring">報名類型</h2>
       <label for="brainpower"><input type="radio" id="brainpower" name="how" data-description="躺在床上用想像力實作" /> 躺在床上用想像力實作</label><br>
-      <label for="smartphone"><input type="radio" id="smartphone" name="how" data-description="趴在地上滑手機找現成的" /> 趴在地上滑手機找現成的<div></div></label>
-      
+      <label for="smartphone"><input type="radio" id="smartphone" name="how" data-description="趴在地上滑手機找現成的" /> 趴在地上滑手機找現成的</label><br>
+      <label for="whyAreWeStillHere"><input type="radio" id="whyAreWeStillHere" name="how" data-description="其實並沒有報名" /> 其實並沒有報名</label>
+      <div id='radioAlert'></div>
     </div>
 
     <div class="question">
       <label for="knowfrom"><h2 class="requiring">怎麼知道這個活動的？</h2></label>
-      <input type="text" placeholder="您的回答" id="knowfrom" class="text_input" />
+      <input type="text" placeholder="您的回答" id="knowfrom" class="text_input requiring" />
       <div></div>
     </div>
 
@@ -138,55 +139,7 @@
   </form>
 </body>
 
-<script type="text/javascript">
-  const form = document.querySelector('form')
-  const nickname = document.querySelector('#nickname')
-  const email = document.querySelector('#email')
-  const tel = document.querySelector('#tel')
-  const radio = document.querySelectorAll('input[type=radio]')
-  const knowfrom = document.querySelector('#knowfrom')
-
-  form.addEventListener('submit', (e)=>{
-    let ok = true
-    if(nickname.value==="") {
-      ok = false
-      document.querySelector('#nickname+div').classList.add('alerting')
-    } else {
-      document.querySelector('#nickname+div').classList.remove('alerting')
-    }
-    if(email.value===""){
-      ok = false
-      document.querySelector('#email+div').classList.add('alerting')
-    } else {
-      document.querySelector('#email+div').classList.remove('alerting')
-    }
-    if(tel.value===""){
-      ok = false
-      document.querySelector('#tel+div').classList.add('alerting')
-    } else {
-      document.querySelector('#tel+div').classList.remove('alerting')
-    }
-    if(radio[0].checked === radio[1].checked){
-      ok = false
-      document.querySelector('#smartphone+div').classList.add('alerting')
-    } else {
-      document.querySelector('#smartphone+div').classList.remove('alerting')
-    }
-    if(knowfrom.value===""){
-      ok = false
-      document.querySelector('#knowfrom+div').classList.add('alerting')
-    } else {
-      document.querySelector('#knowfrom+div').classList.remove('alerting')
-    }
-    if(ok){
-      alert(`暱稱：${nickname.value}\n電子郵件：${email.value}\n電話號碼：${tel.value}\n報名類型：${radio[0].checked? radio[0].dataset.description : radio[1].dataset.description}\n如何得知活動：${knowfrom.value}`)
-    } else {
-      e.preventDefault()      
-    }
-  })
-
-  
-</script>
+<script type="text/javascript" src="script.js"></script>
 
 
 </html>
