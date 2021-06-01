@@ -7,7 +7,6 @@
 
 
 <style type="text/css">
-
   .navbar {
     box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
     padding: 0 20px;
@@ -20,12 +19,12 @@
     background: white;
   }
 
-  .navbar_siteName{
+  .navbarSiteName{
     font-size: 36px;
     color: #489846;
   }
 
-  .navbar_list{
+  .navbarList{
     list-style: none;
     margin: 0;
     padding: 0;
@@ -34,28 +33,28 @@
     align-items: center;
   }
 
-  .navbar_list li{
+  .navbarList li{
     margin-left: 16px;
     border-radius: 8px;
     transition: background 0.1s;
   }
 
-  .navbar_list li.active{
+  .navbarList li.active{
     background-color: #ff7286;
     color: white;
   }
 
-  .navbar_list li.active a,
-  .navbar_list li:hover a {
+  .navbarList li.active a,
+  .navbarList li:hover a {
     color: white;
   }
 
-  .navbar_list li:hover{
+  .navbarList li:hover{
     background-color: #ff7286;
     border-radius: 8px;
   }
 
-  .navbar_list li a{
+  .navbarList li a{
     display: block;
     text-decoration: none;
     color: black;
@@ -70,7 +69,7 @@
   }
 
 
-  .footer_top {
+  .footerTop {
     background-color: #e8efee;
     width: 100%;
     padding-top: 30px;
@@ -79,29 +78,29 @@
     display: flex;
   }
 
-  .footer_topLeft {
+  .footerTopLeft {
     margin-left: 100px;
   }
 
-  .footer_topLeft div {
+  .footerTopLeft div {
     margin: 8px 0px; 
   }
 
-  .footer_topRight {
+  .footerTopRight {
     margin-Right: 100px;
     text-align: center;
   }
 
-  .footer_siteName {
+  .footerSiteName {
     font-size: 36px;
     color: #489846;
   }
-  .footer_sns {
+  .footerSns {
     font-size: 14px;
     color: #484848;
   }
 
-  .footer_bottom {
+  .footerBottom {
     text-align: center;
     font-size: 16px;
     width: 100%;
@@ -136,7 +135,7 @@
     color: white;
   }
 
-  .gacha_window {
+  .gachaWindow {
     position: relative;
     bottom: 25px;
     height: 560px;
@@ -162,13 +161,13 @@
     border-bottom: dashed 1px #cdcdcd;
     padding: 20px 0px;
   }
-  .description_title {
+  .descriptionTitle {
     display: inline-block;
     font-size: 18px;
     width: 25%;
     font-weight: bold;
   }
-  .description_text {
+  .descriptionText {
     display: inline-block;
     width: 70%;
     font-size: 16px;
@@ -176,7 +175,7 @@
     letter-spacing: normal;
     padding-right: 10px;
   }
-  .prize_window {
+  .prizeWindow {
     width: 800px;
     padding: 0px 20px;
     display: flex;
@@ -185,7 +184,7 @@
     text-align: center;
     align-items: center;
   }
-  .gacha_button {
+  .gachaButton {
     color: white;
     padding: 18px 0px;
     background-color: #e62a45;
@@ -204,111 +203,49 @@
       padding: 0px;
     }
 
-    .navbar_list {
+    .navbarList {
       display: flex;
       width: 100%;
     }
-    .navbar_list li {
+    .navbarList li {
       flex: 1;
       margin-left: 0;
       border-radius: 0;
     }
-    .navbar_list li a {
+    .navbarList li a {
       text-align: center;
     }
     .navbar {
       padding: 0 0;
     }
-    .navbar_list li:hover{
+    .navbarList li:hover{
       background-color: #ff7286;
       border-radius: 0px;
     }
-    .footer_top{
+    .footerTop{
       flex-direction: column-reverse;
       justify-content: center;
     }
-    .footer_topLeft{
+    .footerTopLeft{
       text-align: center;
       margin-left: 0;
     }
-    .footer_topRight{
+    .footerTopRight{
       text-align: center;
       margin-right: 0;
     }
   }
 </style>
 
-<script type="text/javascript">
-  window.onload = (function() {
-    const gacha = document.querySelector('.gacha_button');
-    const background = document.querySelector('.main');
-    const gacha_window = document.querySelector('.gacha_window');
-    const prize_window = document.querySelector('.prize_window');
-    const prize_text = document.querySelector('.prize_text');
-
-    window.addEventListener('click', (e)=>{
-      console.log(e.target);
-      if(e.target.classList.contains('gacha_button')){
-        do_gacha(e);
-      }
-    })
-
-    const do_gacha = function(e) {
-      const request = new XMLHttpRequest();
-      request.onload = function() {
-        if(request.status >= 200 && request.status <400){
-          const response = JSON.parse(request.responseText);
-          console.log(response.prize)
-          switch(response.prize) {
-            case 'FIRST':
-              background.id = 'bg_1';
-              gacha_window.classList.add('hidden');
-              prize_window.classList.remove('hidden');
-              prize_text.innerText = '恭喜你中頭獎了！日本東京來回雙人遊！'
-              break;
-            case 'SECOND':
-              background.id = 'bg_2';
-              gacha_window.classList.add('hidden');
-              prize_window.classList.remove('hidden');
-              prize_text.innerText = '二獎！90 吋電視一台！'
-              break;
-            case 'THIRD':
-              background.id = 'bg_3';
-              gacha_window.classList.add('hidden');
-              prize_window.classList.remove('hidden');
-              prize_text.innerText = '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！'
-              break;
-            case 'NONE':
-              background.id = 'bg_4';
-              gacha_window.classList.add('hidden');
-              prize_window.classList.remove('hidden');
-              prize_text.innerText = '銘謝惠顧'
-              break;
-            default:
-              alert('系統不穩定，請再試一次。');
-          }
-        } else {
-          console.log('err');
-          alert('系統不穩定，請再試一次。');
-        }
-      }
-      request.onerror = function() {
-        console.log('error');
-      }
-      request.open('GET', 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery', true);
-      request.send()
-    }
-
-  }) 
-</script>
+<script type="text/javascript" src="script.js"></script>
 
 </head>
 
 <body>
   <nav class="navbar">
     <div class="wrapper">
-      <div class="navbar_siteName">Just A Bite!</div>
-      <ul class="navbar_list">
+      <div class="navbarSiteName">Just A Bite!</div>
+      <ul class="navbarList">
         <li class="active"><a href="#">抽個大獎</a></li>
         <li><a href="#">我要點餐</a></li>
         <li><a href="#">查詢訂單</a></li>
@@ -317,42 +254,42 @@
     </div>
   </nav>
   <div class="main">
-    <div class="gacha_window">
+    <div class="gachaWindow">
       <h2>2020 夏日輕盈特賞！ 抽獎活動辦法</h3>
       <section class="section">
-        <div class="description_title">活動期間：</div><div class="description_text">2020/06/01~2020/07/01</div>
+        <div class="descriptionTitle">活動期間：</div><div class="descriptionText">2020/06/01~2020/07/01</div>
       </section>
       <section class="section">
-        <div class="description_title">活動說明：</div><div class="description_text">今天老闆佛心來著決定給大家發獎勵，有看有機會，沒看只能幫QQ！只要在店內消費滿1000000元即有機會獲得 - 頭獎日本東京來回雙人遊！</div>
+        <div class="descriptionTitle">活動說明：</div><div class="descriptionText">今天老闆佛心來著決定給大家發獎勵，有看有機會，沒看只能幫QQ！只要在店內消費滿1000000元即有機會獲得 - 頭獎日本東京來回雙人遊！</div>
       </section>
       <section class="section">
-        <div class="description_title">獎　　品：</div><div class="description_text">❤ 頭獎一名：日本東京來回雙人遊(市價14990元)<br>
+        <div class="descriptionTitle">獎　　品：</div><div class="descriptionText">❤ 頭獎一名：日本東京來回雙人遊(市價14990元)<br>
         ❤ 貳獎三名：90 吋電視一台(市價5990元)<br>
         ❤ 參獎十名：知名 YouTuber 簽名握手會入場券一張(市價1500元)</div>
       </section>
-      <div class="gacha_button">我要抽獎</div>
+      <div class="gachaButton">我要抽獎</div>
     </div>
 
-    <div class="prize_window hidden">
-      <h1 class="prize_text"></h1>
-      <div class="gacha_button">我要抽獎</div>
+    <div class="prizeWindow hidden">
+      <h1 class="prizeText"></h1>
+      <div class="gachaButton">我要抽獎</div>
     </div>
   </div> 
 
   <footer>
-    <div class="footer_top">
-      <div class="footer_topLeft">
+    <div class="footerTop">
+      <div class="footerTopLeft">
         <div>餐館地址: 天上地下天堂路三分之一里六段520號</div>
         <div>訂位專線：02-1314-5566</div>
         <div>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</div>
         <div>email：service@justabite.com.tw</div>
       </div>
-      <div class="footer_topRight">
-        <div class="footer_siteName">Just A Bite!</div>
-        <div class="footer_sns">Facebook / Instagram / Youtube</div>
+      <div class="footerTopRight">
+        <div class="footerSiteName">Just A Bite!</div>
+        <div class="footerSns">Facebook / Instagram / Youtube</div>
       </div>
     </div>
-    <div class="footer_bottom">
+    <div class="footerBottom">
       Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有
     </div>
   </footer>
