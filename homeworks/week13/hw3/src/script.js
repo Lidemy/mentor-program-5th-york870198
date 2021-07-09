@@ -10,17 +10,17 @@ window.onload = function() {
   window.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn-game')) {
       main.innerHTML = ''
-      sendRequestByFetch(`https://api.twitch.tv/kraken/streams/?game=${e.target.innerText}&limit=20`, inputHeader, getStreamsByGame)
+      sendRequestByFetch(`https://api.twitch.tv/kraken/streams/?game=${e.target.innerText}&limit=20`, inputHeader)
+        .then(getStreamsByGame)
     }
   })
 
-  function sendRequestByFetch(address, header, callback) {
-    fetch(address, {
+  function sendRequestByFetch(address, header) {
+    return fetch(address, {
       method: 'get',
       headers: header
     })
       .then((res) => res.json())
-      .then(callback)
   }
 
   function getTopGames(resBody) {
@@ -57,6 +57,9 @@ window.onload = function() {
     card.innerHTML = `<div class="preview"><img src="${stream.preview.medium}"></div><div class="streamDescription"><div class="channelIcon"><img src="${stream.channel.logo}"></div><div class="streamInfo"><div class="streamTitle">${stream.channel.status}</div><div class="channelName">${stream.channel.display_name}</div></div></div>`
     main.appendChild(card)
   }
-  sendRequestByFetch('https://api.twitch.tv/kraken/games/top?limit=5', inputHeader, getTopGames)
-  sendRequestByFetch('https://api.twitch.tv/kraken/streams/?limit=20', inputHeader, getStreams)
+
+  sendRequestByFetch('https://api.twitch.tv/kraken/games/top?limit=5', inputHeader)
+    .then(getTopGames)
+  sendRequestByFetch('https://api.twitch.tv/kraken/streams/?limit=20', inputHeader)
+    .then(getStreams)
 }
