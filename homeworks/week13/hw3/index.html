@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Top gaming streams</title>
+</head>
+<script type="text/javascript" src="./dist/main.min.js"></script>
+<style type="text/css">
+  body {
+    margin: 0;
+  }
+  nav {
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 25px;
+    background-color: white;
+  }
+  main {
+    padding: 30px 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: cornflowerblue;
+    min-height: 100vh;
+  }
+  .brandMark {
+    font-size: 30px;
+    font-family: monospace;
+    font-weight: bold;
+    color: purple;
+  }
+  .gameList {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+  }
+  .btn-game{
+    display: inline-block;
+    text-align: center;
+    padding: 3px 10px;
+    margin: 0px 1px;
+    font-family: monospace;
+  }
+  .streamCard {
+    box-sizing: border-box;
+    width: 400px;
+    height: 350px;
+    margin: 10px 10px;
+    padding-top: 20px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: lightgray;
+  }
+  .streamDescription {
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-height: 110px;
+    justify-content: space-around;
+    background-color: lightslategrey;
+  }
+  .channelIcon {
+    width: 100px;
+    height: 100px;
+  }
+  .channelIcon img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  .streamInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 200px;
+    color: white;
+  }
+  .streamTitle {
+    overflow: clip;
+    font-size: 20px;
+    height: 50px;
+  }
+  .channelName {
+    overflow: clip;
+    font-size: 16px;
+    height: 20px;
+  }
+</style>
+
+<body>
+  <nav>
+    <div class="brandMark">Twitch Top Games</div>
+    <div class="gameList"></div>
+  </nav>
+  <main>
+  </main>
+
+</body>
+</html>

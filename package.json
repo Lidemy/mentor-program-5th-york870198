@@ -29,6 +29,7 @@
     "lint-staged": "^10.5.4"
   },
   "dependencies": {
-    "got": "^11.8.2"
+    "got": "^11.8.2",
+    "node-fetch": "^2.6.1"
   }
 }
