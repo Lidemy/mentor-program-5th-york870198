@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/styles/style.css">
+  <script type="text/javascript">
+    let username;
+    let id = '';
+    let category = '';
+    <% if(locals.username) { %>
+    username = '<%= currentUser %>'
+    <% } %>
+    <% if(locals.id) { %>
+    id = '<%= id %>'
+    <% } %>
+    <% if(locals.category) { %>
+    category = '<%= category %>'
+    <% } %>
+  </script>
+  <title>A blog, sort of.</title>
+</head>
+<body>
+<div class="wrapper">
+  <div class="banner">
+    <h1>To post or not to post, that is the question.</h1>
+  </div>
+  <div class="main">
+    <div class="main--left">
+      
+    </div>
+    <div class="main--right">
+      <div class="main--right--panel">
+        <div class="block--hint">
+        <% if(!currentUser){ %>
+          <form method="POST" action="/login">
+            <div>帳號<input class="input--login" type="text" name="username"></div>
+            <div>密碼<input class="input--login" type="password" name="password"></div>
+            <div><button>登入</button></div>
+          </form>
+        <% } else {%>
+          <form method="GET" action="/">
+            <div><button>首頁</button></div>
+          </form>
+          <form method="GET" action="/article">
+            <div><button>發文</button></div>
+          </form>
+          <form method="POST" action="/logout">
+            <div><button>登出</button></div>
+          </form>
+        <% } %>
+        </div>
+      </div>
+      <div class="main--right--category">
+        <div>
+          <h3>分類顯示：</h3>
+        </div>
+        <div class="block--category"><a href="/">全部文章</a></div>
+        <div class="block--category"><a href="/article/category/筆記">筆　　記</a></div>
+        <div class="block--category"><a href="/article/category/遊戲">遊　　戲</a></div>
+        <div class="block--category"><a href="/article/category/飲食">飲　　食</a></div>
+        <div class="block--category"><a href="/article/category/影劇">影　　劇</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/scripts/main.js"></script>
+
+</body>
+</html>
