@@ -1,0 +1,241 @@
+.navbar {
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+  padding: 0 20px;
+}
+.navbar .wrapper{
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  height: 84px;
+  background: white;
+}
+
+.navbar--siteName{
+  font-size: 36px;
+  color: #489846;
+}
+
+.navbar--siteName a{
+  color: inherit;
+  text-decoration: none !important;
+}
+
+.navbar--list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  font-size: 18px;
+  align-items: center;
+}
+
+.navbar--list li{
+  margin-left: 16px;
+  border-radius: 8px;
+  transition: background 0.1s;
+}
+
+.navbar--list li.active{
+  background-color: #ff7286;
+  color: white;
+}
+
+.navbar--list li.active a,
+.navbar--list li:hover a {
+  color: white;
+}
+
+.navbar--list li:hover{
+  background-color: #ff7286;
+  border-radius: 8px;
+}
+
+.navbar--list li a{
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 12px 24px;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0px 24px;
+  text-align: center;
+}
+
+
+.footer--top {
+  background-color: #e8efee;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.footer--topLeft {
+  margin-left: 100px;
+}
+
+.footer--topLeft div {
+  margin: 8px 0px; 
+}
+
+.footer--topRight {
+  margin-Right: 100px;
+  text-align: center;
+}
+
+.footer--siteName {
+  font-size: 36px;
+  color: #489846;
+}
+.footer--sns {
+  font-size: 14px;
+  color: #484848;
+}
+
+.footer--bottom {
+  text-align: center;
+  font-size: 16px;
+  width: 100%;
+  background-color: #35564b;
+  color: white;
+  padding: 12px 0px;
+  font-size: 16px;
+  color: white;
+}
+
+.main {
+  padding: 0px 0px;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  background: url('/img/games-bn.png');
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+#bg_1 {
+  background: url('flight-4315953_1920.jpg');
+}
+#bg_2 {
+  background: url('living-room-1872192_1920.jpg');
+}
+#bg_3 {
+  background: url('youtube-2617510_1920.jpg');
+}
+#bg_4 {
+  background: black;
+  color: white;
+}
+
+.gachaWindow {
+  position: relative;
+  bottom: 25px;
+  height: 560px;
+  width: 450px;
+  background-color: white;
+  border-radius: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  text-align: center;
+  transition: unset;
+}
+.gacha--result {
+  width: 80%;
+}
+
+.gacha--result img {
+  width: 100%;
+}
+
+h2 {
+  color: #5ec1b6;
+  font-weight: bold;
+  font-family: MicrosoftJhengHei;
+}
+.section {
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  width: 100%;
+  border-bottom: dashed 1px #cdcdcd;
+  padding: 20px 0px;
+}
+.descriptionTitle {
+  display: inline-block;
+  font-size: 18px;
+  width: 25%;
+  font-weight: bold;
+}
+.descriptionText {
+  display: inline-block;
+  width: 70%;
+  font-size: 16px;
+  line-height: 1.63;
+  letter-spacing: normal;
+  padding-right: 10px;
+}
+.prizeWindow {
+  width: 800px;
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.gachaButton {
+  color: white;
+  padding: 18px 0px;
+  background-color: #e62a45;
+  border-radius: 8px;
+  min-width: 400px;
+}
+.hidden {
+  display: none;
+}
+
+@media(max-width: 768px){
+  .navbar .wrapper{
+    height: 100px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px;
+  }
+
+  .navbar--list {
+    display: flex;
+    width: 100%;
+  }
+  .navbar--list li {
+    flex: 1;
+    margin-left: 0;
+    border-radius: 0;
+  }
+  .navbar--list li a {
+    text-align: center;
+  }
+  .navbar {
+    padding: 0 0;
+  }
+  .navbar--list li:hover{
+    background-color: #ff7286;
+    border-radius: 0px;
+  }
+  .footer--top{
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .footer--topLeft{
+    text-align: center;
+    margin-left: 0;
+  }
+  .footer--topRight{
+    text-align: center;
+    margin-right: 0;
+  }
+}

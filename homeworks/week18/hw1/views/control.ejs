@@ -1,0 +1,89 @@
+<% layout('boilerplate') -%>
+<div>
+  <div class="logout--button text-center mt-3">
+    <a href="/logout">登出</a>
+  </div>
+  <div class="menu--set mt-3 text-center">
+    <h3 class="text-warning">菜單</h3>
+    <div class="menu--container container">
+      <div class="p-0">
+        <form class="row mt-1" action="/menu" method="POST">
+          <div class="col-2 border border-danger text-center p-0">
+            <input class="form-control" type="text" name="name"></input>
+          </div>
+          <div class="col-2 border border-danger text-center p-0">
+            <input class="form-control" type="integer" name="price"></input>
+          </div>
+          <div class="col-6 border border-danger text-center p-0">
+            <input class="form-control" type="url" name="picture"></input>
+          </div>
+          <div class="col-2 border border-danger text-center p-1">
+            <input type="submit" name="action" value="新增" />
+          </div>
+        </form>
+      </div>
+      <div class="row mt-1">
+        <div class="col-2 border border-info text-center">品名</div>
+        <div class="col-2 border border-info text-center">價錢</div>
+        <div class="col-6 border border-info text-center">圖片連結</div>
+        <div class="col-1 border border-info text-center">修改</div>
+        <div class="col-1 border border-info text-center">刪除</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lottery--set mt-3 text-center">
+    <h3 class="text-warning">更改獎品</h3>
+    <div class="lottery--container container">
+      <div class="p-0">
+        <form class="row mt-1" action="/lottery" method="POST">
+          <div class="col-2 border border-danger text-center p-0">
+            <input class="form-control" type="text" name="name"></input>
+          </div>
+          <div class="col-2 border border-danger text-center p-0">
+            <input class="form-control" type="integer" name="rate"></input>
+          </div>
+          <div class="col-6 border border-danger text-center p-0">
+            <input class="form-control" type="url" name="img"></input>
+          </div>
+          <div class="col-2 border border-danger text-center p-1">
+            <input type="submit" name="action" value="新增" />
+          </div>
+        </form>
+      </div>
+      <div class="row mt-1">
+        <div class="col-2 border border-info text-center">獎項名稱</div>
+        <div class="col-2 border border-info text-center">倍率</div>
+        <div class="col-6 border border-info text-center">圖片連結</div>
+        <div class="col-1 border border-info text-center">修改</div>
+        <div class="col-1 border border-info text-center">刪除</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq--set mt-3 text-center">
+    <h3 class="text-warning">常見問題</h3>
+    <div class="faq--container container">
+      <div class="p-0">
+        <form class="row mt-1" action="/faq" method="POST">
+          <div class="col-4 border border-danger text-center p-0">
+            <input class="form-control" type="text" name="title"></input>
+          </div>
+          <div class="col-6 border border-danger text-center p-0">
+            <input class="form-control" type="text" name="description"></input>
+          </div>
+          <div class="col-2 border border-danger text-center p-1">
+            <input type="submit" name="action" value="新增" />
+          </div>
+        </form>
+      </div>
+      <div class="row mt-1">
+        <div class="col-4 border border-info text-center">問題</div>
+        <div class="col-6 border border-info text-center">回答</div>
+        <div class="col-1 border border-info text-center">修改</div>
+        <div class="col-1 border border-info text-center">刪除</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="/script/control.js"></script>
