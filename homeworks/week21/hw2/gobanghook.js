@@ -112,7 +112,7 @@ function Gobang() {
     let result = ''
     let counter = 0
     for(let i=-4; i<=4; i++) {
-      if(boardState[x+i] && boardState[y+i]) {
+      if(boardState[x] && boardState[x][y+i]) {
         if(boardState[x][y+i].occupied === color){
           counter += 1
         } else {

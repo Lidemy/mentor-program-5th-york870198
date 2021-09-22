@@ -148,7 +148,6 @@ class Todo extends Component {
   }
   render() {
     const { missions, filter } = this.state
-    let filterStr = '全部'
     const getNewTodo = (e) => {
       const obj = JSON.parse(e.target.value)
       if(obj.content){
@@ -182,25 +181,26 @@ class Todo extends Component {
     }
     const filterTodo = (e) => {
       if (this.state.filter === 'all'){
-        filterStr = '全部'
         return true
       } else {
-        filterStr = (this.state.filter)? '完成' : '待辦'
         return (e.done === this.state.filter) 
       }
     }
     const changeFilter = () => {
       if(this.state.filter === 'all') {
+        let state = true
         this.setState({
-          filter: true
+          filter: state
         })
       } else if (this.state.filter) {
+        let state = false
         this.setState({
-          filter: false
+          filter: state
         })
       } else {
+        let state = 'all'
         this.setState({
-          filter: 'all'
+          filter: state
         })
       }
     }
@@ -210,7 +210,8 @@ class Todo extends Component {
         {missions.filter(filterTodo).map((e)=>(<Mission key={e.id} obj={e} deleteFunc={deleteTodo} finishFunc={finishTodo}/>))}
         <Footer>
           <Btn bgcolor='purple' onClick={clearTodo}>清空</Btn>
-          <Btn bgcolor='purple' onClick={changeFilter}>{filterStr}</Btn>
+          <div>按右邊這個按鍵就可以篩選→</div>
+          <Btn bgcolor='purple' onClick={changeFilter}>{(filter === 'all')? '全部' : (filter? '完成' : '待辦')}</Btn>
         </Footer>
       </Main>
     )

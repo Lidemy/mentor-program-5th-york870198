@@ -111,7 +111,7 @@ function Registerform() {
   }
   return (
     <Wrapper>
-      <form onSubmit={submitHandler} action='/' method='POST' id='formTester'>
+      <form onSubmit={submitHandler} method='POST' id='formTester'>
         <TitleBlock />
         <InputBlock id='nickname' subject='暱稱' placeholder='請輸入暱稱' type='text' validator={['text', 'require']} />
         <InputBlock id='email' subject='電子郵件' placeholder='您的電子郵件' type='text' validator={['email', 'require']} />
