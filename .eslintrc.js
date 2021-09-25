@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     node: true,
     jest: true,
-    jquery: true
+    jquery: true,
   },
   extends: '@lidemy/eslint-config-lidemy',
   globals: {
@@ -18,10 +18,6 @@ module.exports = {
     ecmaVersion: 2018
   },
   rules: {
-    'no-console': 'off',
-    'import/no-unresolved': [
-      2,
-      { caseSensitive: false }
-    ]
+    'no-console': 'off'
   }
 }
